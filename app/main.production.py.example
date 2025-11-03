@@ -1,0 +1,21 @@
+# Example: Production CORS Configuration
+# Copy this to main.py and update with your actual frontend domains
+
+from fastapi.middleware.cors import CORSMiddleware
+
+# For production, replace with your actual frontend URLs:
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://your-frontend-app.vercel.app",
+        "https://your-frontend-app.netlify.app",
+        "https://your-custom-domain.com",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Keep localhost for testing:
+# allow_origins=["http://localhost:5173", "https://your-frontend-url.com"],
+

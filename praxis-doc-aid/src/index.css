@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 15% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 15% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 15% 20%;
+
+    /* Medical blue - professional and trustworthy */
+    --primary: 210 70% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 210 70% 45%;
+
+    /* Light blue for secondary actions */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 210 70% 50%;
+
+    /* Warm gray for muted content */
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 15% 45%;
+
+    /* Success green for valid results */
+    --success: 140 65% 42%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warm accent for approachability */
+    --accent: 210 40% 96%;
+    --accent-foreground: 210 70% 50%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 210 70% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom semantic tokens for medical interface */
+    --result-bg: 210 40% 98%;
+    --result-border: 210 30% 85%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
