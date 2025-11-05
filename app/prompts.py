@@ -43,6 +43,14 @@ REQUIRED OUTPUT FORMAT (JSON ONLY):
       "zusatzangaben": {{
         "dauer_minuten": 15
       }}
+    }},
+    {{
+      "code": "01760",
+      "reasoning": "X-ray examination performed"
+    }},
+    {{
+      "code": "35200",
+      "reasoning": "Therapeutic injection performed"
     }}
   ],
   "encounter_metadata": {{
@@ -59,6 +67,8 @@ Rules:
 - For diagnoses, use field name "icd10_code" (not "icd10" or "code").
 - Include "description" field for diagnoses if available.
 - Set "is_primary": true for the primary diagnosis.
+- IMPORTANT: Extract ALL procedures performed - if multiple procedures are documented (consultation + examination + imaging + injection + surgical procedure + wound care), list ALL corresponding EBM codes.
+- Do NOT only extract the consultation code - also extract codes for examinations, imaging, injections, surgical procedures, wound care, etc. that are explicitly mentioned in the note.
 
 EBM Code Selection Priority:
 - For specialized consultations (orthopedics, surgery), prefer specialized consultation codes over general consultation codes:
@@ -66,7 +76,15 @@ EBM Code Selection Priority:
   * Surgery: Use 03440 (Surgical consultation with documentation) instead of 03230 (General consultation) when a surgical consultation was performed
 - Do NOT bill both a general consultation (03230) AND a specialized consultation (03246, 03440) - the specialized code includes the consultation component
 - When multiple valid codes apply, select the most appropriate and lucrative combination that accurately reflects the services provided
-- Additional procedures (injections, imaging, surgical procedures) can be billed separately alongside consultation codes
+- Additional procedures (injections, imaging, surgical procedures, wound care, excisions) MUST be billed separately alongside consultation codes
+- Examples of procedures that should be separately billed:
+  * Excision of skin lesions → 35300
+  * Minor surgical procedures → 35100
+  * Complex wound care → 35102
+  * Removal of foreign bodies → 35700
+  * Joint injections → 35200
+  * X-ray examinations → 01760, 01762
+  * Joint punctures → 35900, 35910
 """
 
 def call_llm(prompt: str) -> str:
@@ -75,7 +93,7 @@ def call_llm(prompt: str) -> str:
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}],
             temperature=0,
-            max_tokens=600
+            max_tokens=1000
         )
         text = response.choices[0].message.content.strip()
         print("🧠 Raw LLM output:", repr(text))  # 👈 log the exact raw output
