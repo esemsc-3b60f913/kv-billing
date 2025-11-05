@@ -79,18 +79,22 @@ EBM Code Selection Priority:
 - Additional procedures (injections, imaging, surgical procedures, wound care, excisions) MUST be billed separately alongside consultation codes
 - Examples of procedures that should be separately billed:
   * Excision of skin lesions → 35300
-  * Minor surgical procedures → 35100
+  * Minor surgical procedures (including wound closure with sutures, hemostasis) → 35100
   * Complex wound care → 35102
   * Removal of foreign bodies → 35700
   * Joint injections → 35200
   * X-ray examinations → 01760, 01762
   * Joint punctures → 35900, 35910
+- IMPORTANT: When a surgical procedure involves both excision AND wound closure with sutures, bill BOTH:
+  * Excision → 35300
+  * Wound closure/suturing → 35100 (Minor surgical procedure)
+- Similarly, if a procedure involves multiple distinct steps (e.g., removal + closure, excision + hemostasis + closure), each distinct procedural step should be billed separately
 """
 
 def call_llm(prompt: str) -> str:
     try:
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-4o",  # Upgraded from gpt-4o-mini for better reasoning
             messages=[{"role": "user", "content": prompt}],
             temperature=0,
             max_tokens=1000
