@@ -92,24 +92,34 @@ EBM Code Selection Priority:
 """
 
 def call_llm(prompt: str) -> str:
-    try:
-        response = client.chat.completions.create(
-            model="gpt-4o",  # Upgraded from gpt-4o-mini for better reasoning
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0,
-            max_tokens=1000
-        )
-        text = response.choices[0].message.content.strip()
-        print("🧠 Raw LLM output:", repr(text))  # 👈 log the exact raw output
+    models_to_try = ["gpt-4o", "gpt-4o-mini"]  # Try GPT-4o first, fallback to mini
+    
+    for model in models_to_try:
+        try:
+            print(f"🤖 Attempting API call with model: {model}")
+            response = client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0,
+                max_tokens=1000
+            )
+            text = response.choices[0].message.content.strip()
+            print("🧠 Raw LLM output:", repr(text))  # 👈 log the exact raw output
 
-        if not text:
-            raise ValueError("LLM returned an empty response. Check API key or prompt.")
+            if not text:
+                raise ValueError("LLM returned an empty response. Check API key or prompt.")
 
-        json.loads(text)  # validate JSON
-        return text
+            json.loads(text)  # validate JSON
+            print(f"✅ Successfully used model: {model}")
+            return text
 
-    except Exception as e:
-        print("❌ OpenAI API call failed:", e)
-        raise
+        except Exception as e:
+            print(f"❌ Model {model} failed: {e}")
+            if model == models_to_try[-1]:  # If this was the last model, raise the error
+                raise ValueError(f"All models failed. Last error: {e}")
+            # Otherwise, continue to next model
+            continue
+    
+    raise ValueError("Failed to get response from any model")
 
     
