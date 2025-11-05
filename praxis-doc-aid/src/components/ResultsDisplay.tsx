@@ -17,7 +17,7 @@ const ResultsDisplay = ({ icdCodes, ebmCodes, isValid, onExport, isExporting }: 
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-2">
-            Extrahierte Codes
+            Extracted Codes
             {isValid ? (
               <CheckCircle2 className="h-5 w-5 text-success" />
             ) : (
@@ -25,18 +25,18 @@ const ResultsDisplay = ({ icdCodes, ebmCodes, isValid, onExport, isExporting }: 
             )}
           </CardTitle>
           <Badge variant={isValid ? "default" : "destructive"}>
-            {isValid ? "Validiert" : "Ungültig"}
+            {isValid ? "Validated" : "Invalid"}
           </Badge>
         </div>
         <CardDescription>
           {isValid
-            ? "Die Codes wurden erfolgreich extrahiert und validiert."
-            : "Die extrahierten Codes konnten nicht validiert werden."}
+            ? "The codes were successfully extracted and validated."
+            : "The extracted codes could not be validated."}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
         <div>
-          <h4 className="font-semibold text-sm mb-2">ICD-Codes</h4>
+          <h4 className="font-semibold text-sm mb-2">ICD Codes</h4>
           <div className="flex flex-wrap gap-2">
             {icdCodes.length > 0 ? (
               icdCodes.map((code, index) => (
@@ -45,13 +45,13 @@ const ResultsDisplay = ({ icdCodes, ebmCodes, isValid, onExport, isExporting }: 
                 </Badge>
               ))
             ) : (
-              <span className="text-sm text-muted-foreground">Keine ICD-Codes gefunden</span>
+              <span className="text-sm text-muted-foreground">No ICD codes found</span>
             )}
           </div>
         </div>
 
         <div>
-          <h4 className="font-semibold text-sm mb-2">EBM-Codes</h4>
+          <h4 className="font-semibold text-sm mb-2">EBM Codes</h4>
           <div className="flex flex-wrap gap-2">
             {ebmCodes.length > 0 ? (
               ebmCodes.map((code, index) => (
@@ -60,7 +60,7 @@ const ResultsDisplay = ({ icdCodes, ebmCodes, isValid, onExport, isExporting }: 
                 </Badge>
               ))
             ) : (
-              <span className="text-sm text-muted-foreground">Keine EBM-Codes gefunden</span>
+              <span className="text-sm text-muted-foreground">No EBM codes found</span>
             )}
           </div>
         </div>
@@ -70,7 +70,7 @@ const ResultsDisplay = ({ icdCodes, ebmCodes, isValid, onExport, isExporting }: 
             {isExporting ? (
               <>
                 <Download className="mr-2 h-4 w-4 animate-pulse" />
-                Exportiere...
+                Exporting...
               </>
             ) : (
               <>

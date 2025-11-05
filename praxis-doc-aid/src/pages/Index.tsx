@@ -82,7 +82,7 @@ const Index = () => {
 
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(error.detail || "Fehler bei der Verarbeitung");
+        throw new Error(error.detail || "Error processing");
       }
 
       // Adapt to backend's actual output fields (diagnoses, ebm_codes, encounter_metadata)
@@ -123,14 +123,14 @@ const Index = () => {
       setStoredPatients((prev) => [...prev, patientData]);
 
       toast({
-        title: "Erfolgreich verarbeitet",
-        description: `${icdCodes.length} ICD-Codes und ${ebmCodes.length} EBM-Codes extrahiert. Patient gespeichert.`,
+        title: "Successfully processed",
+        description: `${icdCodes.length} ICD codes and ${ebmCodes.length} EBM codes extracted. Patient saved.`,
       });
     } catch (error) {
       console.error("Error:", error);
       toast({
-        title: "Fehler",
-        description: error instanceof Error ? error.message : "Ein unerwarteter Fehler ist aufgetreten.",
+        title: "Error",
+        description: error instanceof Error ? error.message : "An unexpected error occurred.",
         variant: "destructive",
       });
     } finally {
@@ -169,7 +169,7 @@ const Index = () => {
       });
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(error.detail || "Fehler beim Export");
+        throw new Error(error.detail || "Export error");
       }
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
@@ -181,14 +181,14 @@ const Index = () => {
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
       toast({
-        title: "Export erfolgreich",
-        description: "Die KVDT-Datei wurde heruntergeladen.",
+        title: "Export successful",
+        description: "The KVDT file has been downloaded.",
       });
     } catch (error) {
       console.error("Error:", error);
       toast({
-        title: "Export fehlgeschlagen",
-        description: error instanceof Error ? error.message : "Ein unerwarteter Fehler ist aufgetreten.",
+        title: "Export failed",
+        description: error instanceof Error ? error.message : "An unexpected error occurred.",
         variant: "destructive",
       });
     } finally {
@@ -199,8 +199,8 @@ const Index = () => {
   const handleQuartalExport = async () => {
     if (!selectedQuarter) {
       toast({
-        title: "Fehler",
-        description: "Bitte wählen Sie ein Quartal aus.",
+        title: "Error",
+        description: "Please select a quarter.",
         variant: "destructive",
       });
       return;
@@ -219,8 +219,8 @@ const Index = () => {
 
     if (patientsForQuarter.length === 0) {
       toast({
-        title: "Keine Patienten",
-        description: `Keine Patienten für ${selectedQuarter} gefunden.`,
+        title: "No patients",
+        description: `No patients found for ${selectedQuarter}.`,
         variant: "destructive",
       });
       return;
@@ -279,7 +279,7 @@ const Index = () => {
 
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(error.detail || "Fehler beim Quartal Export");
+        throw new Error(error.detail || "Error during quarterly export");
       }
 
       const blob = await response.blob();
@@ -293,14 +293,14 @@ const Index = () => {
       document.body.removeChild(a);
 
       toast({
-        title: "Quartal Export erfolgreich",
-        description: `${patientsForQuarter.length} Patienten für ${selectedQuarter} exportiert.`,
+        title: "Quarterly export successful",
+        description: `${patientsForQuarter.length} patients exported for ${selectedQuarter}.`,
       });
     } catch (error) {
       console.error("Error:", error);
       toast({
-        title: "Export fehlgeschlagen",
-        description: error instanceof Error ? error.message : "Ein unerwarteter Fehler ist aufgetreten.",
+        title: "Export failed",
+        description: error instanceof Error ? error.message : "An unexpected error occurred.",
         variant: "destructive",
       });
     } finally {
@@ -311,8 +311,8 @@ const Index = () => {
   const handleDeletePatient = (patientId: string) => {
     setStoredPatients((prev) => prev.filter((p) => p.id !== patientId));
     toast({
-      title: "Patient gelöscht",
-      description: "Patient wurde aus der Liste entfernt.",
+      title: "Patient deleted",
+      description: "Patient has been removed from the list.",
     });
   };
 
@@ -338,18 +338,18 @@ const Index = () => {
         <header className="text-center space-y-2">
           <div className="flex items-center justify-center gap-2 text-primary">
             <FileText className="h-8 w-8" />
-            <h1 className="text-3xl font-bold">Medizinische Abrechnung</h1>
+            <h1 className="text-3xl font-bold">Medical Billing</h1>
           </div>
           <p className="text-muted-foreground">
-            Automatische Extraktion von ICD- und EBM-Codes aus Behandlungsdokumentationen
+            Automatic extraction of ICD and EBM codes from treatment documentation
           </p>
         </header>
 
         <Card>
           <CardHeader>
-            <CardTitle>Behandlungsdokumentation</CardTitle>
+            <CardTitle>Treatment Documentation</CardTitle>
             <CardDescription>
-              Geben Sie die Behandlungsdokumentation ein und ergänzen Sie optional weitere Angaben.
+              Enter the treatment documentation and optionally add additional information.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -373,22 +373,22 @@ const Index = () => {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Users className="h-5 w-5" />
-                <CardTitle>Gespeicherte Patienten</CardTitle>
+                <CardTitle>Stored Patients</CardTitle>
               </div>
-              <Badge variant="secondary">{storedPatients.length} Patienten</Badge>
+              <Badge variant="secondary">{storedPatients.length} Patients</Badge>
             </div>
             <CardDescription>
-              Alle behandelten Patienten mit ihren ICD- und EBM-Codes
+              All treated patients with their ICD and EBM codes
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             {/* Quartal Export Section */}
             <div className="flex items-end gap-2 p-4 bg-muted rounded-lg">
               <div className="flex-1 space-y-2">
-                <label className="text-sm font-medium">Quartal Export</label>
+                <label className="text-sm font-medium">Quarter Export</label>
                 <Select value={selectedQuarter} onValueChange={setSelectedQuarter}>
                   <SelectTrigger>
-                    <SelectValue placeholder="Quartal auswählen" />
+                    <SelectValue placeholder="Select Quarter" />
                   </SelectTrigger>
                   <SelectContent>
                     {getAvailableQuarters().map((quarter) => (
@@ -406,12 +406,12 @@ const Index = () => {
                 {isQuartalExporting ? (
                   <>
                     <Download className="mr-2 h-4 w-4 animate-pulse" />
-                    Exportiere...
+                    Exporting...
                   </>
                 ) : (
                   <>
                     <Download className="mr-2 h-4 w-4" />
-                    Quartal Export
+                    Quarter Export
                   </>
                 )}
               </Button>
@@ -432,7 +432,7 @@ const Index = () => {
                       </div>
                       <div className="space-y-1">
                         <div className="text-sm">
-                          <span className="font-medium">ICD-Codes: </span>
+                          <span className="font-medium">ICD Codes: </span>
                           {patient.icdCodes.length > 0 ? (
                             <div className="inline-flex flex-wrap gap-1 mt-1">
                               {patient.icdCodes.map((code, idx) => (
@@ -442,11 +442,11 @@ const Index = () => {
                               ))}
                             </div>
                           ) : (
-                            <span className="text-muted-foreground">Keine</span>
+                            <span className="text-muted-foreground">None</span>
                           )}
                         </div>
                         <div className="text-sm">
-                          <span className="font-medium">EBM-Codes: </span>
+                          <span className="font-medium">EBM Codes: </span>
                           {patient.ebmCodes.length > 0 ? (
                             <div className="inline-flex flex-wrap gap-1 mt-1">
                               {patient.ebmCodes.map((code, idx) => (
@@ -456,7 +456,7 @@ const Index = () => {
                               ))}
                             </div>
                           ) : (
-                            <span className="text-muted-foreground">Keine</span>
+                            <span className="text-muted-foreground">None</span>
                           )}
                         </div>
                       </div>
@@ -475,8 +475,8 @@ const Index = () => {
             ) : (
               <div className="text-center py-8 text-muted-foreground">
                 <Users className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                <p>Noch keine Patienten gespeichert</p>
-                <p className="text-sm">Patienten werden automatisch beim Verarbeiten gespeichert</p>
+                <p>No patients stored yet</p>
+                <p className="text-sm">Patients are automatically saved when processing</p>
               </div>
             )}
           </CardContent>

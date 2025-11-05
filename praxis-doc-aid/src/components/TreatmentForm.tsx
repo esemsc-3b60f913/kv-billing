@@ -42,11 +42,11 @@ const TreatmentForm = ({ onSubmit, isLoading }: TreatmentFormProps) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="patientName" className="text-base font-semibold">
-            Patientenname *
+            Patient Name *
           </Label>
           <Input
             id="patientName"
-            placeholder="z.B. Max Mustermann"
+            placeholder="e.g. John Doe"
             value={formData.patientName}
             onChange={(e) => setFormData({ ...formData, patientName: e.target.value })}
             required
@@ -55,7 +55,7 @@ const TreatmentForm = ({ onSubmit, isLoading }: TreatmentFormProps) => {
 
         <div className="space-y-2">
           <Label htmlFor="date" className="text-base font-semibold">
-            Behandlungsdatum *
+            Treatment Date *
           </Label>
           <Input
             id="date"
@@ -69,11 +69,11 @@ const TreatmentForm = ({ onSubmit, isLoading }: TreatmentFormProps) => {
 
       <div className="space-y-2">
         <Label htmlFor="documentation" className="text-base font-semibold">
-          Behandlungsdokumentation *
+          Treatment Documentation *
         </Label>
         <Textarea
           id="documentation"
-          placeholder="Beschreiben Sie die Behandlung, Diagnosen und durchgeführte Leistungen..."
+          placeholder="Describe the treatment, diagnoses and services performed..."
           value={formData.documentation}
           onChange={(e) => setFormData({ ...formData, documentation: e.target.value })}
           className="min-h-[200px] resize-y"
@@ -83,13 +83,13 @@ const TreatmentForm = ({ onSubmit, isLoading }: TreatmentFormProps) => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="patientAge">Patientenalter (optional)</Label>
+          <Label htmlFor="patientAge">Patient Age (optional)</Label>
           <Input
             id="patientAge"
             type="number"
             min="0"
             max="150"
-            placeholder="z.B. 45"
+            placeholder="e.g. 45"
             value={formData.patientAge}
             onChange={(e) => setFormData({ ...formData, patientAge: e.target.value })}
           />
@@ -102,7 +102,7 @@ const TreatmentForm = ({ onSubmit, isLoading }: TreatmentFormProps) => {
             onValueChange={(value) => setFormData({ ...formData, kvRegion: value })}
           >
             <SelectTrigger id="kvRegion">
-              <SelectValue placeholder="Region wählen" />
+              <SelectValue placeholder="Select Region" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="Berlin">Berlin</SelectItem>
@@ -119,23 +119,23 @@ const TreatmentForm = ({ onSubmit, isLoading }: TreatmentFormProps) => {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="insuranceType">Versicherungsart (optional)</Label>
+          <Label htmlFor="insuranceType">Insurance Type (optional)</Label>
           <Select
             value={formData.insuranceType}
             onValueChange={(value) => setFormData({ ...formData, insuranceType: value })}
           >
             <SelectTrigger id="insuranceType">
-              <SelectValue placeholder="Art wählen" />
+              <SelectValue placeholder="Select Type" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="GKV">GKV (Gesetzlich)</SelectItem>
-              <SelectItem value="PKV">PKV (Privat)</SelectItem>
+              <SelectItem value="GKV">GKV (Public)</SelectItem>
+              <SelectItem value="PKV">PKV (Private)</SelectItem>
             </SelectContent>
           </Select>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="specialty">Fachrichtung</Label>
+          <Label htmlFor="specialty">Specialty</Label>
           <Select
             value={formData.specialty}
             onValueChange={(value) => setFormData({ ...formData, specialty: value })}
@@ -144,11 +144,11 @@ const TreatmentForm = ({ onSubmit, isLoading }: TreatmentFormProps) => {
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="Allgemeinmedizin">Allgemeinmedizin</SelectItem>
-              <SelectItem value="Innere Medizin">Innere Medizin</SelectItem>
-              <SelectItem value="Chirurgie">Chirurgie</SelectItem>
-              <SelectItem value="Pädiatrie">Pädiatrie</SelectItem>
-              <SelectItem value="Orthopädie">Orthopädie</SelectItem>
+              <SelectItem value="Allgemeinmedizin">General Medicine</SelectItem>
+              <SelectItem value="Innere Medizin">Internal Medicine</SelectItem>
+              <SelectItem value="Chirurgie">Surgery</SelectItem>
+              <SelectItem value="Pädiatrie">Pediatrics</SelectItem>
+              <SelectItem value="Orthopädie">Orthopedics</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -162,10 +162,10 @@ const TreatmentForm = ({ onSubmit, isLoading }: TreatmentFormProps) => {
         {isLoading ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Verarbeite...
+            Processing...
           </>
         ) : (
-          "Verarbeiten"
+          "Process"
         )}
       </Button>
     </form>
