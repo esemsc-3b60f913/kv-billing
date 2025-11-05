@@ -58,8 +58,12 @@ def extract_codes(payload: ExtractionPayload):
         else:
             # Handle dictionary format
             normalized_diag = diag.copy()
-            if "icd10_code" not in normalized_diag and "code" in normalized_diag:
-                normalized_diag["icd10_code"] = normalized_diag.pop("code")
+            # Handle various field name variations from LLM
+            if "icd10_code" not in normalized_diag:
+                if "icd10" in normalized_diag:
+                    normalized_diag["icd10_code"] = normalized_diag.pop("icd10")
+                elif "code" in normalized_diag:
+                    normalized_diag["icd10_code"] = normalized_diag.pop("code")
             if "is_primary" not in normalized_diag:
                 normalized_diag["is_primary"] = True
         

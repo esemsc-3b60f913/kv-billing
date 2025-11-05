@@ -128,12 +128,12 @@ Findings:
 Diagnostic imaging: X-ray of the right shoulder performed showing signs of subacromial impingement 
 and calcific deposits in the supraspinatus tendon. No evidence of fracture or dislocation.
 
-Diagnosis: Rotator cuff lesion (M75.1) with subacromial impingement syndrome and calcific tendinitis.
+Diagnosis: Rotator cuff lesion with subacromial impingement syndrome and calcific tendinitis.
 
 Performed procedures:
-1. Orthopedic examination with detailed assessment and documentation (03246)
-2. X-ray examination of the right shoulder/upper extremity (01760)
-3. Therapeutic injection of corticosteroid and local anesthetic into the subacromial space (35200)
+1. Orthopedic examination with detailed assessment and documentation
+2. X-ray examination of the right shoulder/upper extremity
+3. Therapeutic injection of corticosteroid and local anesthetic into the subacromial space
 
 Treatment plan: Continue with NSAIDs, physical therapy focusing on rotator cuff strengthening, 
 and follow-up in 4 weeks. If symptoms persist, consider MRI for further evaluation.
@@ -173,14 +173,14 @@ Clinical examination:
 X-ray examination of the left knee performed in AP and lateral views, showing no bony 
 pathology or signs of osteoarthritis. Small joint effusion visible.
 
-Clinical diagnosis: Meniscal lesion of the left knee (M23.2), likely medial meniscus tear 
+Clinical diagnosis: Meniscal lesion of the left knee, likely medial meniscus tear 
 based on mechanism of injury and clinical findings.
 
 Performed services:
-1. Comprehensive orthopedic examination with detailed documentation (03246)
-2. X-ray examination of the left knee (01760)
+1. Comprehensive orthopedic examination with detailed documentation
+2. X-ray examination of the left knee
 3. Diagnostic knee joint aspiration performed under sterile conditions - clear synovial fluid 
-   obtained, sent for analysis (35900)
+   obtained, sent for analysis
 
 Recommendations: Rest, ice, compression, elevation. Referral for MRI to confirm meniscal 
 pathology. Consider arthroscopic evaluation if symptoms persist or worsen. Physical therapy 
@@ -219,16 +219,16 @@ Examination findings:
 - Range of motion intact, no neurovascular deficits
 
 Procedure performed:
-1. Surgical consultation and wound assessment (03440)
+1. Surgical consultation and wound assessment
 2. Local anesthesia administered
-3. Careful exploration and removal of glass fragment (foreign body removal) (35700)
+3. Careful exploration and removal of glass fragment (foreign body removal)
 4. Wound debridement and irrigation with saline solution
-5. Complex wound care with drainage placement (35102)
+5. Complex wound care with drainage placement
 6. Dressing applied
 
 Intraoperative findings: Glass fragment approximately 8mm x 5mm removed from deep tissue.
 
-Diagnosis: Infected wound of the hand (S61.9) with retained foreign body.
+Diagnosis: Infected wound of the hand with retained foreign body.
 
 Post-procedure care: Prescribed oral antibiotics (amoxicillin-clavulanate), wound care 
 instructions provided, follow-up in 48 hours for dressing change and reassessment.
@@ -269,13 +269,13 @@ Diagnostic imaging: X-ray of the cervical spine in AP, lateral, and oblique view
 Findings show degenerative changes at C5-C6 and C6-C7 levels with foraminal narrowing on the 
 right side at C5-C6, consistent with discogenic radiculopathy.
 
-Clinical diagnosis: Cervical radiculopathy (M54.1) secondary to degenerative disc disease 
+Clinical diagnosis: Cervical radiculopathy secondary to degenerative disc disease 
 at C5-C6 level, likely C6 nerve root involvement.
 
 Services rendered:
-1. Comprehensive orthopedic examination with detailed neurological assessment (03246)
-2. X-ray examination of the cervical spine (01762)
-3. Therapeutic injection: Cervical epidural steroid injection at C5-C6 level (35910)
+1. Comprehensive orthopedic examination with detailed neurological assessment
+2. X-ray examination of the cervical spine
+3. Therapeutic injection: Cervical epidural steroid injection at C5-C6 level
 
 Post-procedure: Patient tolerated the procedure well. Instructions provided for activity 
 modification, continuation of NSAIDs, and referral to physical therapy for cervical 
@@ -319,11 +319,11 @@ Patient concerned about potential malignancy. After discussion of risks and bene
 made for excisional biopsy.
 
 Procedure performed:
-1. Surgical consultation and lesion assessment (03440)
+1. Surgical consultation and lesion assessment
 2. Local anesthesia administered (lidocaine 1%)
-3. Elliptical excision of the lesion with 2mm margins (35300)
+3. Elliptical excision of the lesion with 2mm margins
 4. Hemostasis achieved with electrocautery
-5. Wound closure with interrupted sutures (35100)
+5. Wound closure with interrupted sutures
 6. Dressing applied
 
 Specimen sent for histopathological examination.
@@ -331,7 +331,7 @@ Specimen sent for histopathological examination.
 Post-procedure: Wound care instructions provided. Sutures to be removed in 10-14 days. 
 Patient advised to return for follow-up to review pathology results.
 
-Diagnosis: Melanocytic nevus (D22.9), excised for diagnostic purposes.
+Diagnosis: Melanocytic nevus, excised for diagnostic purposes.
 
 Procedure duration: 22 minutes including consultation, procedure, and documentation.
 ```
@@ -367,12 +367,12 @@ Clinical examination performed:
 Diagnostic imaging: X-ray of the right elbow performed in AP and lateral views to rule out 
 bony pathology or calcifications. Findings show no abnormalities.
 
-Clinical diagnosis: Lateral epicondylitis (tennis elbow), right elbow (M77.1).
+Clinical diagnosis: Lateral epicondylitis (tennis elbow), right elbow.
 
 Treatment provided:
 1. Comprehensive orthopedic examination with detailed documentation of findings
 2. X-ray examination of the right elbow (extremity imaging)
-3. Therapeutic injection: corticosteroid injection into the lateral epicondyle region (35200)
+3. Therapeutic injection: corticosteroid injection into the lateral epicondyle region
 
 Post-procedure: Patient instructed on activity modification, ergonomic recommendations, and 
 prescribed NSAIDs. Follow-up scheduled in 3 weeks.
@@ -429,9 +429,9 @@ nail avulsion with nail bed ablation.
 Procedure performed:
 1. Surgical consultation and assessment of the condition
 2. Local anesthesia administered (digital block)
-3. Partial nail avulsion (removal of the lateral portion of the nail plate) (35110)
+3. Partial nail avulsion (removal of the lateral portion of the nail plate)
 4. Chemical ablation of the nail matrix using phenol
-5. Complex wound care with antimicrobial dressing (35102)
+5. Complex wound care with antimicrobial dressing
 6. Post-procedure instructions provided
 
 Post-procedure: Patient advised to keep foot elevated, change dressing daily, and prescribed 

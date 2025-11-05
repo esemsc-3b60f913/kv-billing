@@ -29,8 +29,22 @@ INPUT:
 REQUIRED OUTPUT FORMAT (JSON ONLY):
 
 {{
-  "diagnoses": [],
-  "ebm_codes": [],
+  "diagnoses": [
+    {{
+      "icd10_code": "M54.5",
+      "description": "Kreuzschmerz",
+      "is_primary": true
+    }}
+  ],
+  "ebm_codes": [
+    {{
+      "code": "03230",
+      "reasoning": "Consultation duration 15 minutes",
+      "zusatzangaben": {{
+        "dauer_minuten": 15
+      }}
+    }}
+  ],
   "encounter_metadata": {{
     "quarter": "YYYYQn",
     "kv_region": "{p.kv_region}",
@@ -42,6 +56,9 @@ REQUIRED OUTPUT FORMAT (JSON ONLY):
 Rules:
 - Use only valid ICD-10-GM and EBM codes.
 - Return valid JSON only.
+- For diagnoses, use field name "icd10_code" (not "icd10" or "code").
+- Include "description" field for diagnoses if available.
+- Set "is_primary": true for the primary diagnosis.
 
 EBM Code Selection Priority:
 - For specialized consultations (orthopedics, surgery), prefer specialized consultation codes over general consultation codes:
