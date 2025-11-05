@@ -21,6 +21,21 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def root() -> Dict[str, Any]:
+    return {
+        "service": "KV Billing API",
+        "status": "running",
+        "version": "0.1.0",
+        "endpoints": {
+            "health": "/healthz",
+            "extract": "/extract",
+            "validate": "/validate",
+            "kvdt_export": "/kvdt/export",
+            "docs": "/docs"
+        }
+    }
+
 @app.get("/healthz")
 def healthz() -> Dict[str, Any]:
     return {"ok": True, "ts": datetime.utcnow().isoformat()}

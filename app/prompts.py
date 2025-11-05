@@ -42,6 +42,14 @@ REQUIRED OUTPUT FORMAT (JSON ONLY):
 Rules:
 - Use only valid ICD-10-GM and EBM codes.
 - Return valid JSON only.
+
+EBM Code Selection Priority:
+- For specialized consultations (orthopedics, surgery), prefer specialized consultation codes over general consultation codes:
+  * Orthopedics: Use 03246 (Orthopedic examination with documentation) instead of 03230 (General consultation) when a comprehensive orthopedic examination was performed
+  * Surgery: Use 03440 (Surgical consultation with documentation) instead of 03230 (General consultation) when a surgical consultation was performed
+- Do NOT bill both a general consultation (03230) AND a specialized consultation (03246, 03440) - the specialized code includes the consultation component
+- When multiple valid codes apply, select the most appropriate and lucrative combination that accurately reflects the services provided
+- Additional procedures (injections, imaging, surgical procedures) can be billed separately alongside consultation codes
 """
 
 def call_llm(prompt: str) -> str:
