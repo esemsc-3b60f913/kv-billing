@@ -16,8 +16,10 @@
    - **Name**: `kv-billing-backend`
    - **Environment**: `Python 3`
    - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-   - **Root Directory**: `/app`
+   - **Start Command**: Leave empty (Render will automatically use `Procfile`)
+   - **Root Directory**: `/` (leave empty or set to root)
+   
+   **Note**: If you manually set Start Command, use: `uvicorn app.main:app --host 0.0.0.0 --port $PORT` (no backticks, no extra quotes)
 5. Add environment variables:
    - `OPENAI_API_KEY`: Your OpenAI API key
 6. Deploy!
